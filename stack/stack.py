@@ -9,26 +9,46 @@ return elements in Last In First Out order.
    Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
+            The Difference between using an array vs. a LL:
+             LL is more efficient store in memory and has faster insertion/deletion time compared to arrays. Arrays have the 
+             faster and more efficient search time
+      
 """
+
+
+class StackA:
+    def __init__(self):
+        self.storage = [] 
+
+    def __len__(self):
+        return len(self.storage)
+
+    def push(self, value):
+        self.storage.append(value)
+
+    def pop(self):
+        if len(self.storage) == 0:
+            return None
+        return self.storage.pop()
+
+
 from singly_linked_list import LinkedList
 
-class Stack:
+# Stack implementation using a Linked List
+class StackL:
     def __init__(self):
         self.size = 0
-        self.storage =  LinkedList()
-
+        self.storage = LinkedList()
 
     def __len__(self):
         return self.size
 
     def push(self, value):
-        self.storage.add_to_tail(value)
-        self.storage += 1
+        self.storage.add_to_head(value)
+        self.size += 1
 
     def pop(self):
-        if self.size != 0:
-            self.size -= 1
-            return self.storage.remove_tail()
-        else:
+        if self.size == 0:
             return None
-
+        self.size -= 1
+        return self.storage.remove_head()
