@@ -30,26 +30,12 @@ Stretch: What if you could only use instances of your Stack class to implement t
 #             return None
 #         return self.storage.pop(0)
 
-class QueueA:
-    def __init__(self):
-        self.storage = [] 
+#
 
-    def __len__(self):
-        return len(self.storage)
-
-    def enqueue(self, value):
-        self.storage.append(value)
-
-    def dequeue(self):
-        if len(self.storage) == 0:
-            return None
-        return self.storage.pop(0)
-
-
-from linked_list import LinkedList
+from singly_linked_list import LinkedList
 
 # Queue implementation using a Linked List for the underlying storage
-class QueueL:
+class Queue:
     def __init__(self):
         self.storage = LinkedList()
         self.size = 0
